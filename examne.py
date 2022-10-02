@@ -18,5 +18,5 @@ for i in range(500):
     c4.append(random.randint(0,5000))
 
 for j in range(500):
-    archivo.write('{}, {}, {}, {}\n'.format(c1[j],c2[j],c3[j], c4[j]))
+    archivo.write('{} {} {} {}\n'.format(c1[j],c2[j],c3[j], c4[j]))
 archivo.close()
