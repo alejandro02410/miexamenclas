@@ -4,8 +4,9 @@ from . models import endNum
 
 def muestra_datos(request):
     consulta = endNum.objects.all()
-    contexto = {'data': consulta}
-    return render(request, 'listas/index.html',contexto)
+    calculaSuma=suma(consulta)
+    contexto = zip(consulta,calculaSuma)
+    return render(request, 'listas/index.html',{'contexto':contexto})
 
 def suma(val):
     listSum = []
