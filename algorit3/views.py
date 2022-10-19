@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from . models import endNum
+from . models import algo3
 
 
 def muestra_datos(request):
-    consulta = endNum.objects.all()
+    consulta = algo3.objects.all()
     calculaSuma=suma(consulta)
     contexto = zip(consulta,calculaSuma)
-    return render(request, 'listas/index.html',{'contexto':contexto})
+    return render(request, 'algorit3/algoritmo3.html',{'contexto':contexto})
 
 def suma(val):
     listSum = []
