@@ -1,15 +1,29 @@
 from django.shortcuts import render
 from . models import algo1
-
+import math
+import random
 
 def muestra_datos(request):
-    consulta = algo1.objects.all()
-    calculaSuma=suma(consulta)
-    contexto = zip(consulta,calculaSuma)
+    x1 = random.randint(1,500)
+    x2 = random.randint(1,500)
+    x3 = random.randint(1,500)
+    df = algo1.objects.all()
+
+    ldis = distanciaEu(df,x1,x2,x3)
+    ldis = sorted(ldis)
+    contexto = zip(df,ldis)
+
     return render(request, 'algorit1/algoritmo1.html',{'contexto':contexto})
 
-def suma(val):
-    listSum = []
-    for i in val:
-        listSum.append(i.x1 + i.x3 + i.x4)
-    return listSum
+
+def distanciaEu(df,x1,x2,x3):
+
+    ldist = []
+
+    for i in df:
+
+        dis = (x1 - i.x1)**2+(x2 - i.x3)**2+(x3 - i.x4)**2
+        raiz = round(math.sqrt(dis),4)
+        ldist.append(raiz)
+
+    return ldist
