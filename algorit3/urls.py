@@ -3,6 +3,6 @@ from . import views
 
 urlpatterns = [
 
-    path('algorit3/', views.muestra_datos, name='algorit3'),
+    path('algorit3/', views.regresionLog, name='algorit3'),
 
 ]

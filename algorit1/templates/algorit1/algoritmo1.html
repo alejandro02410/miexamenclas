@@ -11,21 +11,28 @@
 </head>
 
 <body>
-  <h1>Algoritmo de Clasificacion</h1>
+  <h1>Algoritmo KNN</h1>
   <form>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Ingrese X1</label>
-      <input type="text" class="form-control" id="inputx1" placeholder="X1" />
+    <div class="col-sm-2">
+      <label class="visually-hidden" for="specificSizeInputName">Ingrese X1</label>
+      <input type="text" class="form-control" name="z" id="specificSizeInputZ" placeholder="X1">
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Ingrese X2</label>
-      <input type="text" class="form-control" id="inputx2" placeholder="X2" />
+    <div class="col-sm-2">
+      <label class="visually-hidden" for="specificSizeInputName">Ingrese X2</label>
+      <input type="text" class="form-control" name="z" id="specificSizeInputZ" placeholder="X2">
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Ingrese X3</label>
-      <input type="text" class="form-control" id="inputx3" placeholder="X3" />
+    <div class="col-sm-2">
+      <label class="visually-hidden" for="specificSizeInputName">Ingrese X3</label>
+      <input type="text" class="form-control" name="z" id="specificSizeInputZ" placeholder="X3">
     </div>
-    <button type="submit" class="btn btn-primary">Accept</button>
+    <div class="col-sm-2">
+      <label class="visually-hidden" for="specificSizeInputName">Ingrese K</label>
+      <input type="text" class="form-control" name="z" id="specificSizeInputZ" placeholder="k">
+    </div>
+    <button type="submit" class="btn btn-outline-success" value="interpretar">Comenzar</button>
+    <div class="col-sm-2">
+      <label class="visually-hidden" for="specificSizeInputName">vecino mas cercano</label>
+    </div>
   </form>
   <table class="table table-dark">
     <thead>
@@ -36,22 +43,30 @@
         <th scope="col">x3</th>
         <th scope="col">x4</th>
         <th scope="col">Distancia</th>
-
+        <th scope="col">Mas Repetida</th>
       </tr>
+
     </thead>
     <tbody>
       <tr>
-        {% for var,distanciaEu in contexto %}
+        {% for var,distanciaEu,cuentaVecino in contexto %}
         <th scope="row"></th>
         <td>{{var.x2}}</td>
         <td>{{var.x1}}</td>
         <td>{{var.x3}}</td>
         <td>{{var.x4}}</td>
         <td>{{distanciaEu}}</td>
+        <td>{{cuentaVecino}}</td>
+        
       </tr>
     </tbody>
     {% endfor %}
   </table>
+  {%for cuentaVecino in contexto%}
+      <div class="alert alert-primary" role="alert">
+        La letras es: {{cuentaVecino}}
+      </div>
+    {% endfor %}
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
     crossorigin="anonymous"></script>
